@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title></title>
+</head>
+<body>
+<div th:fragment="form_contents">
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th class="active col-sm-3">ユーザー名</th>
+      <td>
+        <div class="form-group" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
+          <label>
+            <input type="text" class="form-control" th:field="*{name}"/>
+          </label>
+          <span class="text-danger" th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}">Name error</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

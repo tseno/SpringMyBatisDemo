@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title></title>
+</head>
+<body>
+<div layout:fragment="contents">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="page-header">
+        <div>
+          <h1>ユーザー詳細</h1>
+        </div>
+          <table class="table table-bordered table-hover">
+            <tr>
+              <th class="active col-sm-3">ユーザー名</th>
+              <td>
+                <div class="form-group" th:object="${user}">
+                  <label class="media-body" th:text="*{name}">
+                  </label>
+                </div>
+              </td>
+            </tr>
+          </table>
+        <form th:action="@{/users}" th:method="get">
+          <button class="btn btn-primary btn-lg pull-right" type="submit">一覧</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

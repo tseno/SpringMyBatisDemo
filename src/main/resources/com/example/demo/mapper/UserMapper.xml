@@ -13,7 +13,7 @@
         insert into user (name) values (#{name})
     </insert>
     <update id="update">
-        update user set name = #{name}
+        update user set name = #{name} where id = #{id}
     </update>
     <delete id="delete">
         delete from user where id = #{id}

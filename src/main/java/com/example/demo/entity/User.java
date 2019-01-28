@@ -1,10 +1,13 @@
 package com.example.demo.entity;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class User {
 
   private int id;
 
+  @NotBlank(message = "{require_check}")
   private String name;
 
   public int getId() {

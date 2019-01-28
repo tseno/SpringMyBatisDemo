@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title></title>
+</head>
+<body>
+<div layout:fragment="contents">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="page-header">
+        <div>
+          <h1>ユーザー新規作成</h1>
+        </div>
+        <form method="post" th:action="@{/users}" th:object="${user}">
+
+          <div th:include="users/form :: form_contents"></div>
+
+          <button class="btn btn-primary btn-lg pull-right" type="submit" name="update">作成</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

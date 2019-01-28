@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"/>
+  <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+  <link th:href="@{/css/home.css}" rel="stylesheet"/>
+  <title>Home</title>
+</head>
+<body>
+<div layout:fragment="contents">
+  <div class="page-header">
+    <h1>ユーザー一覧</h1>
+  </div>
+  <table class="table table-bordered table-hover table-striped">
+    <tr>
+      <th class="info col-sm-2">ユーザーID</th>
+      <th class="info col-sm-2">ユーザー名</th>
+      <th class="info col-sm-2"></th>
+    </tr>
+    <tr th:each="user:${users}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"></td>
+      <td>
+        <a class="btn btn-primary" th:href="@{'/users/' + ${user.id}}">詳細</a>
+        <a class="btn btn-primary" th:href="@{'/users/' + ${user.id} + '/edit'}">編集</a>
+      </td>
+    </tr>
+  </table>
+  <label class="text-info" th:text="${result}">結果表示</label><br/>
+  <a class="btn btn-primary" th:href="${'/users/new'}">新規作成</a>
+</div>
+
+</body>
+</html>
